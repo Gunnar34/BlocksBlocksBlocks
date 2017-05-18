@@ -13,8 +13,26 @@ $('#buttonOne').click(function(){
   randomFont(mathNumber);
   $('#buttonOne').css('background-color', color);
   $('p').css('font-family', font);
-});
 
+});
+$('#buttonThree').click(function(){
+  randomNumber(1, 7);
+  randomColor(mathNumber);
+  randomFont(mathNumber);
+  $('#buttonThree').css('background-color', color);
+      var x = randomNumber(0, 10);
+      randomColor(randomNumber(1, 7));
+      $('.' + x).css('background-color', color);
+      console.log("do i work?" + x + color);
+
+});
+$('#buttonTwo').click(function(){
+  randomNumber(1, 7);
+  randomColor(mathNumber);
+  randomFont(mathNumber);
+  $('#buttonTwo').css('background-color', color);
+
+});
 }
 //add box
 function addBox(){
@@ -25,6 +43,8 @@ function addBox(){
   randomNumber(1, 7);
   randomColor(mathNumber);
   $divBox.css('background-color', color );
+        var y = randomNumber(0, 10);
+        $divBox.attr('class', y);
 
 }
 //turn box black
