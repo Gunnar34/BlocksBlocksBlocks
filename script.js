@@ -4,9 +4,11 @@ function onReady(){
   console.log('JS is loaded');
 
 $('#buttonOne').on('click', addBox);
-$('#divOne').on('click', '#box', blackBox);
-$('#divOne').on('click', '#buttonX', removeBox);
+$('main').on('click', '#box', blackBox);
+$('main').on('click', '#buttonX', removeBox);
 $('#buttonTwo').on('click', clearAll);
+
+//Creates a new box with a random color
 $('#buttonOne').click(function(){
   randomNumber(1, 7);
   randomColor(mathNumber);
@@ -15,6 +17,7 @@ $('#buttonOne').click(function(){
   $('p').css('font-family', font);
 
 });
+//random color assignment to already created buttons
 $('#buttonThree').click(function(){
   randomNumber(1, 7);
   randomColor(mathNumber);
@@ -23,9 +26,9 @@ $('#buttonThree').click(function(){
       var x = randomNumber(0, 10);
       randomColor(randomNumber(1, 7));
       $('.' + x).css('background-color', color);
-      console.log("do i work?" + x + color);
 
 });
+//clear all created blocks
 $('#buttonTwo').click(function(){
   randomNumber(1, 7);
   randomColor(mathNumber);
@@ -120,4 +123,10 @@ function clearAll(){
   var $div = $('<div id="divOne"></div>');
   $('#divOne').remove();
   $('main').append($div);
+}
+function resetClass(){
+  var $divBox = $('<div>' + '<button id="buttonX">X</button>' + '</div>');
+  var z = randomNumber(0, 10);
+  $divBox.attr('class', z);
+  console.log('did i work?');
 }
