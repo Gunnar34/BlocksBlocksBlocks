@@ -1,3 +1,6 @@
+html {
+  background-color: grey;
+}
 #box{
   width: 114px;
   height: 114px;
@@ -13,20 +16,23 @@
   border: 2px dashed black;
 }
 
-#buttonOne{
+.button{
+  display: inline-block;
   border: none;
   font-size: 16px;
   padding: 14px 40px;
   color: white;
   background-color: black;
   margin: 1em;
-  position: absolute;
 }
 h1 {
   text-align: center;
+  background-color: white;
+
 }
 p{
 font-family: fantasy;
+background-color: white;
 height: 30px;
 margin: 10px;
 font-size: 16px;

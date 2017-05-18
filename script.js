@@ -6,6 +6,7 @@ function onReady(){
 $('#buttonOne').on('click', addBox);
 $('#divOne').on('click', '#box', blackBox);
 $('#divOne').on('click', '#buttonX', removeBox);
+$('#buttonTwo').on('click', clearAll);
 $('#buttonOne').click(function(){
   randomNumber(1, 7);
   randomColor(mathNumber);
@@ -94,4 +95,9 @@ function randomFont(number){
 //remove box
 function removeBox() {
   $(this).parent().fadeOut('slow');
+}
+function clearAll(){
+  var $div = $('<div id="divOne"></div>');
+  $('#divOne').remove();
+  $('main').append($div);
 }
