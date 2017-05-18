@@ -5,12 +5,12 @@ function onReady(){
 
 $('#buttonOne').on('click', addBox);
 $('#divOne').on('click', '#box', blackBox);
-$('#divOne').on('click', '#buttonX', removeBox)
+$('#divOne').on('click', '#buttonX', removeBox);
 $('#buttonOne').click(function(){
   randomNumber(1, 7);
   randomColor(mathNumber);
   randomFont(mathNumber);
-  $('#buttonOne').css('background-color', color,);
+  $('#buttonOne').css('background-color', color);
   $('p').css('font-family', font);
 });
 
@@ -21,9 +21,9 @@ function addBox(){
   console.log('new box');
   $divBox.attr('id', 'box');
   $('#divOne').append($divBox);
-  randomNumber(1, 7)
-  randomColor(mathNumber)
-  $divBox.css('background-color', color )
+  randomNumber(1, 7);
+  randomColor(mathNumber);
+  $divBox.css('background-color', color );
 
 }
 //turn box black
@@ -32,7 +32,7 @@ function blackBox(){
   $(this).css('background-color', 'black');
 }
 //make random number
-var mathNumber
+var mathNumber;
 function randomNumber(min, max){
     return mathNumber = Math.floor(Math.random() * (1 + max - min) + min);
 }
@@ -66,7 +66,7 @@ function randomColor(number){
 //change font
 var font = '';
 function randomFont(number){
-  console.log('font change')
+  console.log('font change');
   switch (number) {
     case 1:
       font = 'Futura';
