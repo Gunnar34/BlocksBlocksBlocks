@@ -1,5 +1,7 @@
 $(onReady);
 
+var isLoop = 1;                     //  set your counter to 1
+
 function onReady(){
   console.log('JS is loaded');
 
@@ -16,6 +18,7 @@ $('#buttonOne').click(function(){
   $('#buttonOne').css('background-color', color);
   $('p').css('font-family', font);
 
+
 });
 //random color assignment to already created buttons
 $('#buttonThree').click(function(){
@@ -26,6 +29,7 @@ $('#buttonThree').click(function(){
       var x = randomNumber(0, 10);
       randomColor(randomNumber(1, 7));
       $('.' + x).css('background-color', color);
+      resetClass(x);
 
 });
 //clear all created blocks
@@ -35,6 +39,25 @@ $('#buttonTwo').click(function(){
   randomFont(mathNumber);
   $('#buttonTwo').css('background-color', color);
 
+});
+//random color pickerr function x100
+$('#buttonFour').click(function(){
+//   var background = document.getElementById("#buttonFour").style.backgroundColor;
+// if (background == 'black') {
+//        document.getElementById('#buttonFour').style.background = "white";
+//    } else {
+//        document.getElementById(id).style.background = "black";
+//    }
+  if (isLoop == 1){
+    myLoop();
+  }
+  else if (isLoop == 100){
+    isLoop = 1;
+    myLoop();
+  }
+  else {
+    isLoop = 100;
+  }
 });
 }
 //add box
@@ -48,12 +71,13 @@ function addBox(){
   $divBox.css('background-color', color );
         var y = randomNumber(0, 10);
         $divBox.attr('class', y);
-
 }
-//turn box black
+//turn box black *(changed this from black to a random color)
 function blackBox(){
+  randomNumber(1, 7);
+  randomColor(mathNumber);
   console.log('box clicked');
-  $(this).css('background-color', 'black');
+  $(this).css('background-color', color);
 }
 //make random number
 var mathNumber;
@@ -124,9 +148,33 @@ function clearAll(){
   $('#divOne').remove();
   $('main').append($div);
 }
-function resetClass(){
-  var $divBox = $('<div>' + '<button id="buttonX">X</button>' + '</div>');
+function resetClass(x){
+  var $divBox = $('.' + x);
   var z = randomNumber(0, 10);
   $divBox.attr('class', z);
   console.log('did i work?');
+}
+
+function resetForButton(){
+  console.log( 'resetForButton' );
+  // randomNumber(1, 7);
+  // randomColor(mathNumber);
+  // randomFont(mathNumber);
+  //   $('#buttonFour').css('background-color', color);
+      var x = randomNumber(0, 10);
+      randomColor(randomNumber(1, 7));
+      $('.' + x).css('background-color', color);
+      resetClass(x);
+}
+
+//
+function myLoop () {           //  create a loop function
+   setTimeout(function () {    //  call a setTimeout when the loop is called
+      resetForButton();          //  reset function call
+      isLoop++;                     //  increment the counter
+      if (isLoop < 100) {            //  if the counter < 100, call the loop function
+         myLoop();             //  ..  again which will trigger another
+      }                        //  ..  setTimeout()
+   }, 250);
+  i = 0;
 }
